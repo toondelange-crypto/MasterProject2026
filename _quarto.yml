@@ -11,9 +11,7 @@ book:
   chapters:
     - index.qmd
     - chapters/chapter_01.qmd
-    - chapters/chapter_02.qmd
-    - chapters/appendices.qmd
-
+    
 bibliography: bibliography.bib
 
 execute:
