@@ -3,10 +3,10 @@ project:
 
 book:
   title: |
-    Code and data for "<paper title>"
+    Code and data for "master project"
   author: 
     - name: Your name
-      orcid: Your ORCID
+      orcid: Your ORCID #  every researcher has unique orcid
   date: "year"
   chapters:
     - index.qmd
