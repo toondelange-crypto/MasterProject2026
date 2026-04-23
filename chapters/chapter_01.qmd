@@ -5,23 +5,20 @@ execute:
   warning: false
 ---
 
-# Structural divergence
-hashtags to create sections, like in book
+# Introduction
 
-To measure the structural divergence between duplicated genes of *Saccharomyces cerevisiae* the root mean square deviation (RMSD) is used as metric (in Å). In the following we use the predicted structures of the proteome derived from the AlphaFold Protein Structure Database (proteome ID UP000002311).
+To measure the protein structural divergence between duplicated genes of *Saccharomyces cerevisiae* the root mean square deviation (RMSD) is used as metric (in Å). In this project we use the predicted structures of the proteome derived from the AlphaFold Protein Structure Database (proteome ID UP000002311).
 The following packages are necessary for the analysis:
 ```{r} 
-#| message: false
-#| eval: true # false so that it not run
-#| echo: false
 library(bio3d)
 library(tidyverse) 
 library(ggstatsplot)
-library(clusterProfiler)  
+library(clusterProfiler)
+library(ggplot2)
 ```
 
 # Calculation of RMSD and sequence identity percentage.
-First, the protein sequences are pairwisely aligned using the pdbaln() function of the bio3d package. This function aligns based on sequence similarity and requires MUSCLE to be running on the background (MUSCLE must be installed on one of the for R known paths (displayed by Sys.getenv("PATH") or in your R Project directory). Subsequently, the RMSD is calculated using rmsd(). The calculation is typically only based on the aligned C-alpha atoms, which is the default behavior of pdbaln(), only returning the coordinates of the aligned C-alpha atoms. The argument 'fit' is set to TRUE in rmsd(), so that RMSD is calculated after superimposing the corresponding C-alpha atoms of the 2 structures. Additionally, the sequence identity of the aligned part of two sequences is calculated in percentage of the whole alignment length by means pf the seqidentity() function.
+First, the protein sequences are pairwisely aligned using the pdbaln() function of the bio3d package. This function aligns based on sequence similarity and requires MUSCLE to be running on the background (MUSCLE must be installed on one of the for R known paths (displayed by Sys.getenv("PATH") or in your R Project directory). Subsequently, the RMSD is calculated using rmsd(). The calculation is typically only based on the aligned C-alpha atoms, which is the default behavior of pdbaln(), only returning the coordinates of the aligned C-alpha atoms. The argument 'fit' is set to TRUE in rmsd(), so that RMSD is calculated after superimposing the corresponding C-alpha atoms of the 2 structures. Additionally, the sequence identity of the aligned part of two sequences is calculated in percentage of the whole alignment length by means of the seqidentity() function.
 
 We start with a tsv file that shows, per row, the UniProt IDs of a duplicated paralogous gene pair and a third column with the duplication type. The tsv is derived from the doubletrouble package. Then, the function calculate_rmsd() was defined implementing the functionalities as described above. This allows for the execution of a for-loop over the tsv table: extract the UniProt IDs, perform the calculate_rmsd() function each iteration, and add the RMSD and sequence identity percentage to the new columns. The proteome must be locally stored because not all structures are available on the PDB database, from which read.pdb() can read sequences directly.
 
@@ -52,7 +49,7 @@ dups <- tsv |>
     mutate(percent_identity = NA, RMSD = NA)
 # You can see that 36 observations (=rows) are removed from the original table after filtering because they contain a NA value in dup1 or dup2 column (or both)
 
-# actual for-loop
+# actual for-loop over the table
 pdbfolder <- "path to folder with pdb.gz files of the proteome"
 for(i in seq_len(nrow(dups))) {
   id1 <- dups[i, 1]  #extract UniProt IDs
@@ -66,10 +63,10 @@ for(i in seq_len(nrow(dups))) {
 write.table(dups, "Scerevisiae_paralog_pairs_with_rmsd.tsv", sep="\t", quote=FALSE, row.names=FALSE)
 ```
 
-# make a violin plot using geom_violin() within ggplot2, plotting the RMSD distribution of paralog pair per duplication type
+# violin/box plot
+Make a violin/box plot using geom_violin() and geom_boxplot within ggplot2, plotting the RMSD distribution of paralog pair per duplication type.
 Note that there are no transposon-derived duplicated genes identified in *S. cerevisiae*, neither through rTRD (retrotransposon-derived duplication), nor through dTRD (DNA transposon-derived duplication). This is because these duplication types are classified within the DD category (dispersed duplication).
 ```{r}
-library(ggplot2)
 
 # Read the new TSV with RMSD column
 tsv_rmsd <- read.delim("Scerevisiae_paralog_pairs_with_rmsd.tsv",  # If no absolute path, the file name is relative to the current working directory
@@ -79,8 +76,10 @@ tsv_rmsd <- read.delim("Scerevisiae_paralog_pairs_with_rmsd.tsv",  # If no absol
 
 # Remove NA RMSD and percent_identity values (second argument is the select argument)
 tsv_clean <- subset(tsv_rmsd, !is.na(percent_identity) | !is.na(RMSD))  # 186 rows are deleted because of NA values (probably because too divergent to align)
+# remove identical duplicates: this are isoforms of the same protein identified during protein-to-gene mapping of doubletrouble
+tsv_clean <- subset(tsv_clean, dup1!=dup2)  # 67 identical paralog pairs are removed, so 67 rows deleted
 
-# Ensure duplication type is treated as factor
+# Ensure duplication type is treated as factor to get the standard hierarchy
 tsv_clean$type <- factor(
   tsv_clean$type,
   levels = c("SD", "TD", "PD", "DD")
@@ -97,24 +96,24 @@ ggplot(tsv_clean, aes(x = type, y = RMSD)) +
   ) + 
   theme_minimal()
 ```
-Assess statistically significant differences between the RMSD means of different duplication types using ggbetweenstats of the ggstatsplot package, which integrates all the statistics in one figure. The default adjustment method for p-values for multiple comparisons is the Holm method. Dunn's test was used to test which groups differ significantly (post-hoc analysis).
+Assess statistically significant differences between the RMSD means of different duplication types using ggbetweenstats of the ggstatsplot package, which integrates all the statistics in one figure. In this case a Kruskal-Wallis test is conducted, because assumptions for parametric tests were not met. The default adjustment method for p-values for multiple comparisons is the Holm method. Dunn's test was used to test which groups differ significantly (post-hoc analysis).
 ```{r}
 p<- ggbetweenstats(
     tsv_clean,
     x='type',
     y='RMSD',
-    type='nonparametric',
-    pairwise.display = 's' # if omitted only showing the significant differences
+    type='nonparametric',  # no assumptions made except independent paralog pairs
+    pairwise.display = 's', # if omitted also only showing the significant differences
+    xlab = 'duplication type',
+    ylab = 'RMSD (Å)'
 )
 p
 ```
-only significant comparisons are shown (add in legend)
+Only significant comparisons are shown, which are absent in this case. 
 
 # plot RMSD in function of sequence identity
 Add an extra layer (geom_smooth) to see patterns in the data.
 ```{r}
-library(ggplot2)
-
 tsv_clean$type <- factor(
   tsv_clean$type,
   levels = c("SD", "TD", "PD", "DD")
@@ -133,6 +132,17 @@ ggplot(tsv_clean, aes(x = 100*percent_identity, y = RMSD, color = type)) +  # or
   theme_minimal() +
     theme(legend.position = 'none', plot.title = element_text(hjust = 0.5) # to remove legend and center the title
     )
+
+# Pearson's correlation coefficients per duplication type
+cor_results <- tsv_clean %>%
+  filter(!is.na(percent_identity), !is.na(RMSD)) %>%
+  group_by(type) %>%
+  summarise(
+    pearson_r = cor(100 * percent_identity, RMSD, method = "pearson"),
+    .groups = "drop"
+  )
+
+print(cor_results)
 ```
 
 # Is there a bias of RMSD and pLDDT value of AlphaFold?
@@ -158,10 +168,15 @@ plddt_scores <- data.frame(
   UniprotID = all_ids,
   pLDDT = sapply(all_ids, get_average_plddt)
 )
+# Export extended table
+write.table(plddt_scores, "Scerevisiae_paralogs_plddt.tsv", sep="\t", quote=FALSE, row.names=FALSE)
 ```
+
 
 Subsequently, use the plddt_scores table to add to tsv_clean three extra columns: 'score1', 'score2' and mean_score, representing the average pLDDT value of the structure of the first duplicate, of the second duplicate, and their mean. 
 ```{r}
+plddt_scores <- read.delim("Scerevisiae_paralogs_plddt.tsv", header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+  
 # Add pLDDT for both proteins
 tsv_plddt <- tsv_clean |>
   left_join(plddt_scores, by = c("dup1" = "UniprotID")) |>
@@ -171,19 +186,23 @@ tsv_plddt <- tsv_clean |>
   mutate(mean_score = rowMeans(cbind(score1, score2), na.rm = TRUE))
 ```
 
-The mean pLDDT score is then plotted against the RMSD value with the geom_smooth layer to see possible patterns, which indicate a bias in RMSD for pLDDT. Ideally, there is no pattern, just a horizontal line.
+The mean pLDDT score is then plotted against the RMSD value with the geom_smooth layer to see possible patterns, which indicate a bias in RMSD for pLDDT. Ideally, there is no pattern, just a horizontal line (Pearson's correlation coefficient of 0).
 ```{r}
 # Plot RMSD vs mean pLDDT
 ggplot(tsv_plddt, aes(x = mean_score, y = RMSD)) +
   geom_point(alpha = 0.6) +
-  geom_smooth() +
+  geom_smooth(method = "glm") +  # when plotting the lm((RMSD~mean_score, tsv_plddt) the assumptions are not met, so using glm as method
   labs(
     x = "Mean pLDDT of paralog pair",
     y = "RMSD (Å)",
     title = "RMSD vs AlphaFold Confidence (pLDDT)"
   ) +
-  theme_minimal()
+  theme_minimal() +
+    theme(plot.title = element_text(hjust = 0.5)) # center the title
+# calculate Pearson's correlation coefficient and its significance
+cor(tsv_plddt$mean_score, tsv_plddt$RMSD, method = 'pearson')
 ```
+This indicates a bias of RMSD relative to pLDDT
 
 
 # Gene set enrichment analysis
@@ -235,8 +254,8 @@ enr_higher <- enricher(gene = higher_stringIDs, universe = background_genes, TER
 enr_higher <- as.data.frame(enr_higher)
 ```
 
-# plot RMSD vs ranked gene families
-Use the already sorted data from the gene set enrichment analysis. The genes that are included in this analysis, the lowest and highest 10%, are differentially colored.
+# plot RMSD vs ranked paralog pairs
+Use the already sorted data from the gene set enrichment analysis. The genes that are included in this analysis - 10% of total genes with lowest and highest RMSD - are differentially colored.
 ```{r}
 # The row numbers of the data ranked according to RMSD are the ranks
 data_ranked <- data_sorted |>
@@ -254,9 +273,6 @@ data_ranked <- data_ranked |>
 ggplot(data_ranked, aes(x = rank, y = RMSD)) +
   geom_point(aes(color = group), alpha = 0.7, size = 1.5) +
   
-  # Smooth trend (like red curve in your example)
-  geom_smooth(color = "red", se = FALSE, method = "loess") +
-  
   scale_color_manual(values = c(
     "Lower 10%" = "blue",
     "Middle" = "black",
@@ -264,12 +280,12 @@ ggplot(data_ranked, aes(x = rank, y = RMSD)) +
   )) +
   
   labs(
-    x = "Ranked gene pairs",
+    x = "Ranked paralog pairs",
     y = "RMSD (Å)",
     color = "Group",
     title = "RMSD distribution across ranked paralog pairs"
-  ) +
-  
+  ) +  # + facet_wrap(~type)+ to facet by duplication type
   theme_minimal()
 
 ``` 
+

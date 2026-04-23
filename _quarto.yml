@@ -3,9 +3,9 @@ project:
 
 book:
   title: |
-    Code and data for "master project"
+    Code and data for "master I project" about the protein structural divergence after gene and genome duplications
   author: 
-    - name: Your name
+    - name: Toon De Lange
       orcid: Your ORCID #  every researcher has unique orcid
   date: "year"
   chapters:
