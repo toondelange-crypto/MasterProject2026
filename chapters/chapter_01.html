@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Structural divergence – Code and data for "master project"</title>
+<title>1&nbsp; Introduction – Code and data for "master I project" about the protein structural divergence after gene and genome duplications</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -75,10 +72,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-44ee0976171e9be92e6ebe9be850cd66.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -119,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter_01.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Structural divergence</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/chapter_01.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -134,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Code and data for “master project”</a> 
+      <a href="../">Code and data for “master I project” about the protein structural divergence after gene and genome duplications</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -153,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/chapter_01.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Structural divergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
     </ul>
@@ -167,11 +164,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#calculation-of-rmsd-and-sequence-identity-percentage." id="toc-calculation-of-rmsd-and-sequence-identity-percentage." class="nav-link active" data-scroll-target="#calculation-of-rmsd-and-sequence-identity-percentage."><span class="header-section-number">2</span> Calculation of RMSD and sequence identity percentage.</a></li>
-  <li><a href="#make-a-violin-plot-using-geom_violin-within-ggplot2-plotting-the-rmsd-distribution-of-paralog-pair-per-duplication-type" id="toc-make-a-violin-plot-using-geom_violin-within-ggplot2-plotting-the-rmsd-distribution-of-paralog-pair-per-duplication-type" class="nav-link" data-scroll-target="#make-a-violin-plot-using-geom_violin-within-ggplot2-plotting-the-rmsd-distribution-of-paralog-pair-per-duplication-type"><span class="header-section-number">3</span> make a violin plot using geom_violin() within ggplot2, plotting the RMSD distribution of paralog pair per duplication type</a></li>
+  <li><a href="#violinbox-plot" id="toc-violinbox-plot" class="nav-link" data-scroll-target="#violinbox-plot"><span class="header-section-number">3</span> violin/box plot</a></li>
   <li><a href="#plot-rmsd-in-function-of-sequence-identity" id="toc-plot-rmsd-in-function-of-sequence-identity" class="nav-link" data-scroll-target="#plot-rmsd-in-function-of-sequence-identity"><span class="header-section-number">4</span> plot RMSD in function of sequence identity</a></li>
   <li><a href="#is-there-a-bias-of-rmsd-and-plddt-value-of-alphafold" id="toc-is-there-a-bias-of-rmsd-and-plddt-value-of-alphafold" class="nav-link" data-scroll-target="#is-there-a-bias-of-rmsd-and-plddt-value-of-alphafold"><span class="header-section-number">5</span> Is there a bias of RMSD and pLDDT value of AlphaFold?</a></li>
   <li><a href="#gene-set-enrichment-analysis" id="toc-gene-set-enrichment-analysis" class="nav-link" data-scroll-target="#gene-set-enrichment-analysis"><span class="header-section-number">6</span> Gene set enrichment analysis</a></li>
-  <li><a href="#plot-rmsd-vs-ranked-gene-families" id="toc-plot-rmsd-vs-ranked-gene-families" class="nav-link" data-scroll-target="#plot-rmsd-vs-ranked-gene-families"><span class="header-section-number">7</span> plot RMSD vs ranked gene families</a></li>
+  <li><a href="#plot-rmsd-vs-ranked-paralog-pairs" id="toc-plot-rmsd-vs-ranked-paralog-pairs" class="nav-link" data-scroll-target="#plot-rmsd-vs-ranked-paralog-pairs"><span class="header-section-number">7</span> plot RMSD vs ranked paralog pairs</a></li>
   </ul>
 </nav>
     </div>
@@ -180,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Structural divergence</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
 </div>
 
 
@@ -197,256 +194,277 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>hashtags to create sections, like in book</p>
-<p>To measure the structural divergence between duplicated genes of <em>Saccharomyces cerevisiae</em> the root mean square deviation (RMSD) is used as metric (in Å). In the following we use the predicted structures of the proteome derived from the AlphaFold Protein Structure Database (proteome ID UP000002311). The following packages are necessary for the analysis:</p>
+<p>To measure the protein structural divergence between duplicated genes of <em>Saccharomyces cerevisiae</em> the root mean square deviation (RMSD) is used as metric (in Å). In this project we use the predicted structures of the proteome derived from the AlphaFold Protein Structure Database (proteome ID UP000002311). The following packages are necessary for the analysis:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bio3d)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(clusterProfiler)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="calculation-of-rmsd-and-sequence-identity-percentage." class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Calculation of RMSD and sequence identity percentage.</h1>
-<p>First, the protein sequences are pairwisely aligned using the pdbaln() function of the bio3d package. This function aligns based on sequence similarity and requires MUSCLE to be running on the background (MUSCLE must be installed on one of the for R known paths (displayed by Sys.getenv(“PATH”) or in your R Project directory). Subsequently, the RMSD is calculated using rmsd(). The calculation is typically only based on the aligned C-alpha atoms, which is the default behavior of pdbaln(), only returning the coordinates of the aligned C-alpha atoms. The argument ‘fit’ is set to TRUE in rmsd(), so that RMSD is calculated after superimposing the corresponding C-alpha atoms of the 2 structures. Additionally, the sequence identity of the aligned part of two sequences is calculated in percentage of the whole alignment length by means pf the seqidentity() function.</p>
+<p>First, the protein sequences are pairwisely aligned using the pdbaln() function of the bio3d package. This function aligns based on sequence similarity and requires MUSCLE to be running on the background (MUSCLE must be installed on one of the for R known paths (displayed by Sys.getenv(“PATH”) or in your R Project directory). Subsequently, the RMSD is calculated using rmsd(). The calculation is typically only based on the aligned C-alpha atoms, which is the default behavior of pdbaln(), only returning the coordinates of the aligned C-alpha atoms. The argument ‘fit’ is set to TRUE in rmsd(), so that RMSD is calculated after superimposing the corresponding C-alpha atoms of the 2 structures. Additionally, the sequence identity of the aligned part of two sequences is calculated in percentage of the whole alignment length by means of the seqidentity() function.</p>
 <p>We start with a tsv file that shows, per row, the UniProt IDs of a duplicated paralogous gene pair and a third column with the duplication type. The tsv is derived from the doubletrouble package. Then, the function calculate_rmsd() was defined implementing the functionalities as described above. This allows for the execution of a for-loop over the tsv table: extract the UniProt IDs, perform the calculate_rmsd() function each iteration, and add the RMSD and sequence identity percentage to the new columns. The proteome must be locally stored because not all structures are available on the PDB database, from which read.pdb() can read sequences directly.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>calculate_rmsd <span class="ot">&lt;-</span> <span class="cf">function</span>(id1, id2, pdbfolder) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tryCatch</span>({</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Create paths</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        p1 <span class="ot">&lt;-</span> <span class="fu">file.path</span>(pdbfolder, <span class="fu">paste0</span>(<span class="st">"AF-"</span>, id1, <span class="st">"-F1-model_v6.pdb.gz"</span>))</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        p2 <span class="ot">&lt;-</span> <span class="fu">file.path</span>(pdbfolder, <span class="fu">paste0</span>(<span class="st">"AF-"</span>, id2, <span class="st">"-F1-model_v6.pdb.gz"</span>))</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Read files</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        pdb1 <span class="ot">&lt;-</span> <span class="fu">read.pdb</span>(p1, <span class="at">ATOM.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        pdb2 <span class="ot">&lt;-</span> <span class="fu">read.pdb</span>(p2, <span class="at">ATOM.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># pairwise alignment</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        aln <span class="ot">&lt;-</span> <span class="fu">pdbaln</span>(<span class="fu">list</span>(pdb1, pdb2), <span class="at">fit=</span><span class="cn">FALSE</span>) </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        id <span class="ot">&lt;-</span> <span class="fu">seqidentity</span>(aln)[<span class="dv">1</span>,<span class="dv">2</span>]  <span class="co">#function to get seq identity score from alignment character matrix</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        rmsd_val <span class="ot">&lt;-</span> <span class="fu">rmsd</span>(aln, <span class="at">fit =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span>,<span class="dv">2</span>]  </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="fu">c</span>(rmsd_val, id))</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">error =</span> <span class="cf">function</span>(e) <span class="fu">return</span>(<span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>))</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># read tsv file with duplicated paralog pair (1st and 2nd columns) and duplication type (3rd column) </span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>tsv <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"path to tsv with paralog pairs"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter tsv table to remove NAs and add new empty columns for sequence identity percentage and RMSD</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>dups <span class="ot">&lt;-</span> tsv <span class="sc">|&gt;</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(dup1), <span class="sc">!</span><span class="fu">is.na</span>(dup2)) <span class="sc">|&gt;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">percent_identity =</span> <span class="cn">NA</span>, <span class="at">RMSD =</span> <span class="cn">NA</span>)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># You can see that 36 observations (=rows) are removed from the original table after filtering because they contain a NA value in dup1 or dup2 column (or both)</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># actual for-loop</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>pdbfolder <span class="ot">&lt;-</span> <span class="st">"path to folder with pdb.gz files of the proteome"</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dups))) {</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  id1 <span class="ot">&lt;-</span> dups[i, <span class="dv">1</span>]  <span class="co">#extract UniProt IDs</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  id2 <span class="ot">&lt;-</span> dups[i, <span class="dv">2</span>]</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="co">#cat("Processing:", id1, id2, "\n")  #not necessary</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  values <span class="ot">&lt;-</span> <span class="fu">calculate_rmsd</span>(id1, id2, pdbfolder)</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  dups<span class="sc">$</span>percent_identity[i] <span class="ot">&lt;-</span> values[<span class="dv">2</span>]</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  dups<span class="sc">$</span>RMSD[i] <span class="ot">&lt;-</span> values[<span class="dv">1</span>]</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Export extended table</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dups, <span class="st">"Scerevisiae_paralog_pairs_with_rmsd.tsv"</span>, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">quote=</span><span class="cn">FALSE</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>calculate_rmsd <span class="ot">&lt;-</span> <span class="cf">function</span>(id1, id2, pdbfolder) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tryCatch</span>({</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Create paths</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        p1 <span class="ot">&lt;-</span> <span class="fu">file.path</span>(pdbfolder, <span class="fu">paste0</span>(<span class="st">"AF-"</span>, id1, <span class="st">"-F1-model_v6.pdb.gz"</span>))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        p2 <span class="ot">&lt;-</span> <span class="fu">file.path</span>(pdbfolder, <span class="fu">paste0</span>(<span class="st">"AF-"</span>, id2, <span class="st">"-F1-model_v6.pdb.gz"</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Read files</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        pdb1 <span class="ot">&lt;-</span> <span class="fu">read.pdb</span>(p1, <span class="at">ATOM.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        pdb2 <span class="ot">&lt;-</span> <span class="fu">read.pdb</span>(p2, <span class="at">ATOM.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># pairwise alignment</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        aln <span class="ot">&lt;-</span> <span class="fu">pdbaln</span>(<span class="fu">list</span>(pdb1, pdb2), <span class="at">fit=</span><span class="cn">FALSE</span>) </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        id <span class="ot">&lt;-</span> <span class="fu">seqidentity</span>(aln)[<span class="dv">1</span>,<span class="dv">2</span>]  <span class="co">#function to get seq identity score from alignment character matrix</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        rmsd_val <span class="ot">&lt;-</span> <span class="fu">rmsd</span>(aln, <span class="at">fit =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span>,<span class="dv">2</span>]  </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="fu">c</span>(rmsd_val, id))</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">error =</span> <span class="cf">function</span>(e) <span class="fu">return</span>(<span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>))</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># read tsv file with duplicated paralog pair (1st and 2nd columns) and duplication type (3rd column) </span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>tsv <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"path to tsv with paralog pairs"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter tsv table to remove NAs and add new empty columns for sequence identity percentage and RMSD</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>dups <span class="ot">&lt;-</span> tsv <span class="sc">|&gt;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(dup1), <span class="sc">!</span><span class="fu">is.na</span>(dup2)) <span class="sc">|&gt;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">percent_identity =</span> <span class="cn">NA</span>, <span class="at">RMSD =</span> <span class="cn">NA</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># You can see that 36 observations (=rows) are removed from the original table after filtering because they contain a NA value in dup1 or dup2 column (or both)</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># actual for-loop over the table</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>pdbfolder <span class="ot">&lt;-</span> <span class="st">"path to folder with pdb.gz files of the proteome"</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dups))) {</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  id1 <span class="ot">&lt;-</span> dups[i, <span class="dv">1</span>]  <span class="co">#extract UniProt IDs</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  id2 <span class="ot">&lt;-</span> dups[i, <span class="dv">2</span>]</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="co">#cat("Processing:", id1, id2, "\n")  #not necessary</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  values <span class="ot">&lt;-</span> <span class="fu">calculate_rmsd</span>(id1, id2, pdbfolder)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  dups<span class="sc">$</span>percent_identity[i] <span class="ot">&lt;-</span> values[<span class="dv">2</span>]</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  dups<span class="sc">$</span>RMSD[i] <span class="ot">&lt;-</span> values[<span class="dv">1</span>]</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Export extended table</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dups, <span class="st">"Scerevisiae_paralog_pairs_with_rmsd.tsv"</span>, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">quote=</span><span class="cn">FALSE</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="make-a-violin-plot-using-geom_violin-within-ggplot2-plotting-the-rmsd-distribution-of-paralog-pair-per-duplication-type" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> make a violin plot using geom_violin() within ggplot2, plotting the RMSD distribution of paralog pair per duplication type</h1>
-<p>Note that there are no transposon-derived duplicated genes identified in <em>S. cerevisiae</em>, neither through rTRD (retrotransposon-derived duplication), nor through dTRD (DNA transposon-derived duplication). This is because these duplication types are classified within the DD category (dispersed duplication).</p>
+<section id="violinbox-plot" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> violin/box plot</h1>
+<p>Make a violin/box plot using geom_violin() and geom_boxplot within ggplot2, plotting the RMSD distribution of paralog pair per duplication type. Note that there are no transposon-derived duplicated genes identified in <em>S. cerevisiae</em>, neither through rTRD (retrotransposon-derived duplication), nor through dTRD (DNA transposon-derived duplication). This is because these duplication types are classified within the DD category (dispersed duplication).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the new TSV with RMSD column</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>tsv_rmsd <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"Scerevisiae_paralog_pairs_with_rmsd.tsv"</span>,  <span class="co"># If no absolute path, the file name is relative to the current working directory</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove NA RMSD and percent_identity values (second argument is the select argument)</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>tsv_clean <span class="ot">&lt;-</span> <span class="fu">subset</span>(tsv_rmsd, <span class="sc">!</span><span class="fu">is.na</span>(percent_identity) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(RMSD))  <span class="co"># 186 rows are deleted because of NA values (probably because too divergent to align)</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure duplication type is treated as factor</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>tsv_clean<span class="sc">$</span>type <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  tsv_clean<span class="sc">$</span>type,</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"SD"</span>, <span class="st">"TD"</span>, <span class="st">"PD"</span>, <span class="st">"DD"</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Create violin plot with the corresponding boxplot inside the violin</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tsv_clean, <span class="fu">aes</span>(<span class="at">x =</span> type, <span class="at">y =</span> RMSD)) <span class="sc">+</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>) <span class="sc">+</span>  <span class="co"># trim=TRUE, otherwise violin plot does not follow the range of the data and you get negative RMSD values</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Structural Divergence per Duplication Type"</span>,</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Duplication Type"</span>,</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"RMSD (Å)"</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the new TSV with RMSD column</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tsv_rmsd <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"Scerevisiae_paralog_pairs_with_rmsd.tsv"</span>,  <span class="co"># If no absolute path, the file name is relative to the current working directory</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove NA RMSD and percent_identity values (second argument is the select argument)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>tsv_clean <span class="ot">&lt;-</span> <span class="fu">subset</span>(tsv_rmsd, <span class="sc">!</span><span class="fu">is.na</span>(percent_identity) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(RMSD))  <span class="co"># 186 rows are deleted because of NA values (probably because too divergent to align)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># remove identical duplicates: this are isoforms of the same protein identified during protein-to-gene mapping of doubletrouble</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>tsv_clean <span class="ot">&lt;-</span> <span class="fu">subset</span>(tsv_clean, dup1<span class="sc">!=</span>dup2)  <span class="co"># 67 identical paralog pairs are removed, so 67 rows deleted</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure duplication type is treated as factor to get the standard hierarchy</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>tsv_clean<span class="sc">$</span>type <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  tsv_clean<span class="sc">$</span>type,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"SD"</span>, <span class="st">"TD"</span>, <span class="st">"PD"</span>, <span class="st">"DD"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Create violin plot with the corresponding boxplot inside the violin</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tsv_clean, <span class="fu">aes</span>(<span class="at">x =</span> type, <span class="at">y =</span> RMSD)) <span class="sc">+</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>) <span class="sc">+</span>  <span class="co"># trim=TRUE, otherwise violin plot does not follow the range of the data and you get negative RMSD values</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Structural Divergence per Duplication Type"</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Duplication Type"</span>,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"RMSD (Å)"</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Assess statistically significant differences between the RMSD means of different duplication types using ggbetweenstats of the ggstatsplot package, which integrates all the statistics in one figure. The default adjustment method for p-values for multiple comparisons is the Holm method. Dunn’s test was used to test which groups differ significantly (post-hoc analysis).</p>
+<p>Assess statistically significant differences between the RMSD means of different duplication types using ggbetweenstats of the ggstatsplot package, which integrates all the statistics in one figure. In this case a Kruskal-Wallis test is conducted, because assumptions for parametric tests were not met. The default adjustment method for p-values for multiple comparisons is the Holm method. Dunn’s test was used to test which groups differ significantly (post-hoc analysis).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span> <span class="fu">ggbetweenstats</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    tsv_clean,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">'type'</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">'RMSD'</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">type=</span><span class="st">'nonparametric'</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">pairwise.display =</span> <span class="st">'s'</span> <span class="co"># if omitted only showing the significant differences</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span> <span class="fu">ggbetweenstats</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    tsv_clean,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">'type'</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">'RMSD'</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">type=</span><span class="st">'nonparametric'</span>,  <span class="co"># no assumptions made except independent paralog pairs</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">pairwise.display =</span> <span class="st">'s'</span>, <span class="co"># if omitted also only showing the significant differences</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">'duplication type'</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">'RMSD (Å)'</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>only significant comparisons are shown (add in legend)</p>
+<p>Only significant comparisons are shown, which are absent in this case.</p>
 </section>
 <section id="plot-rmsd-in-function-of-sequence-identity" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> plot RMSD in function of sequence identity</h1>
 <p>Add an extra layer (geom_smooth) to see patterns in the data.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>tsv_clean<span class="sc">$</span>type <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  tsv_clean<span class="sc">$</span>type,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"SD"</span>, <span class="st">"TD"</span>, <span class="st">"PD"</span>, <span class="st">"DD"</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tsv_clean, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">100</span><span class="sc">*</span>percent_identity, <span class="at">y =</span> RMSD, <span class="at">color =</span> type)) <span class="sc">+</span>  <span class="co"># or -log(RMSD) to get positive relationship</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(type))<span class="sc">+</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span>  </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Structural Divergence in function of Sequence Identity Percentage"</span>,</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sequence Identity (%)"</span>,</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"RMSD (Å)"</span>,</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Duplication Type"</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">'none'</span>, <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>) <span class="co"># to remove legend and center the title</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tsv_clean<span class="sc">$</span>type <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  tsv_clean<span class="sc">$</span>type,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"SD"</span>, <span class="st">"TD"</span>, <span class="st">"PD"</span>, <span class="st">"DD"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tsv_clean, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">100</span><span class="sc">*</span>percent_identity, <span class="at">y =</span> RMSD, <span class="at">color =</span> type)) <span class="sc">+</span>  <span class="co"># or -log(RMSD) to get positive relationship</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(type))<span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span>  </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Structural Divergence in function of Sequence Identity Percentage"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sequence Identity (%)"</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"RMSD (Å)"</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Duplication Type"</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">'none'</span>, <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>) <span class="co"># to remove legend and center the title</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Pearson's correlation coefficients per duplication type</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>cor_results <span class="ot">&lt;-</span> tsv_clean <span class="sc">%&gt;%</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(percent_identity), <span class="sc">!</span><span class="fu">is.na</span>(RMSD)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">%&gt;%</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">pearson_r =</span> <span class="fu">cor</span>(<span class="dv">100</span> <span class="sc">*</span> percent_identity, RMSD, <span class="at">method =</span> <span class="st">"pearson"</span>),</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cor_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="is-there-a-bias-of-rmsd-and-plddt-value-of-alphafold" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Is there a bias of RMSD and pLDDT value of AlphaFold?</h1>
 <p>pLDDT score is defined on the AlphaFold server as “a per-atom confidence estimate on a 0-100 scale where a higher value indicates higher confidence”. We will extract all the pLDDT values of each duplicated gene from the AlphaFold Protein Structure Database using web scraping. While looping through the table with the paralog pairs, we create a table with the UniProt IDs of duplicated genes and their pLDDT value scraped from the online database. We gather only the pLDDT if we could calculate the RMSD between this gene and its paralog, so we will use tsv_clean. We create another table with the pLDDT scores because several duplicated genes appear multiple times in the paralog pairs table, but their pLDDT score must be gathered only once.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R function that extracts pLDDT scores for a given protein (UniProt ID) using API calls to the AlphaFold database</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Define function to extract average pLDDT score from AlphaFold database</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>get_average_plddt <span class="ot">&lt;-</span> <span class="cf">function</span>(protein_id) {</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tryCatch</span>({</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">'https://alphafold.ebi.ac.uk/api/prediction/'</span>, protein_id)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        score <span class="ot">&lt;-</span> httr<span class="sc">::</span><span class="fu">content</span>(httr<span class="sc">::</span><span class="fu">GET</span>(url))[[<span class="dv">1</span>]]<span class="sc">$</span>globalMetricValue</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(score)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    }, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="cn">NA</span>)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>})}</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: get_average_plddt("A0A1D6G8X0")</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># building table with pLDDT scores of duplicated genes in tsv_clean, if they are not yet present</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plddt_scores <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">UniprotID =</span> <span class="fu">character</span>(), <span class="at">pLDDT =</span> <span class="fu">numeric</span>()) <span class="co"># Initialize empty table</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>all_ids <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">c</span>(tsv_clean[[<span class="dv">1</span>]], tsv_clean[[<span class="dv">2</span>]])) <span class="co">#extract all unique UniProt IDs</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>plddt_scores <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">UniprotID =</span> all_ids,</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">pLDDT =</span> <span class="fu">sapply</span>(all_ids, get_average_plddt)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R function that extracts pLDDT scores for a given protein (UniProt ID) using API calls to the AlphaFold database</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Define function to extract average pLDDT score from AlphaFold database</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>get_average_plddt <span class="ot">&lt;-</span> <span class="cf">function</span>(protein_id) {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tryCatch</span>({</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">'https://alphafold.ebi.ac.uk/api/prediction/'</span>, protein_id)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        score <span class="ot">&lt;-</span> httr<span class="sc">::</span><span class="fu">content</span>(httr<span class="sc">::</span><span class="fu">GET</span>(url))[[<span class="dv">1</span>]]<span class="sc">$</span>globalMetricValue</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(score)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    }, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="cn">NA</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>})}</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: get_average_plddt("A0A1D6G8X0")</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># building table with pLDDT scores of duplicated genes in tsv_clean, if they are not yet present</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>plddt_scores <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">UniprotID =</span> <span class="fu">character</span>(), <span class="at">pLDDT =</span> <span class="fu">numeric</span>()) <span class="co"># Initialize empty table</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>all_ids <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">c</span>(tsv_clean[[<span class="dv">1</span>]], tsv_clean[[<span class="dv">2</span>]])) <span class="co">#extract all unique UniProt IDs</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>plddt_scores <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">UniprotID =</span> all_ids,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">pLDDT =</span> <span class="fu">sapply</span>(all_ids, get_average_plddt)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Export extended table</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(plddt_scores, <span class="st">"Scerevisiae_paralogs_plddt.tsv"</span>, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">quote=</span><span class="cn">FALSE</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Subsequently, use the plddt_scores table to add to tsv_clean three extra columns: ‘score1’, ‘score2’ and mean_score, representing the average pLDDT value of the structure of the first duplicate, of the second duplicate, and their mean.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add pLDDT for both proteins</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>tsv_plddt <span class="ot">&lt;-</span> tsv_clean <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(plddt_scores, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"dup1"</span> <span class="ot">=</span> <span class="st">"UniprotID"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">score1 =</span> pLDDT) <span class="sc">|&gt;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(plddt_scores, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"dup2"</span> <span class="ot">=</span> <span class="st">"UniprotID"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">score2 =</span> pLDDT) <span class="sc">|&gt;</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_score =</span> <span class="fu">rowMeans</span>(<span class="fu">cbind</span>(score1, score2), <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plddt_scores <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"Scerevisiae_paralogs_plddt.tsv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Add pLDDT for both proteins</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>tsv_plddt <span class="ot">&lt;-</span> tsv_clean <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(plddt_scores, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"dup1"</span> <span class="ot">=</span> <span class="st">"UniprotID"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">score1 =</span> pLDDT) <span class="sc">|&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(plddt_scores, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"dup2"</span> <span class="ot">=</span> <span class="st">"UniprotID"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">score2 =</span> pLDDT) <span class="sc">|&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_score =</span> <span class="fu">rowMeans</span>(<span class="fu">cbind</span>(score1, score2), <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The mean pLDDT score is then plotted against the RMSD value with the geom_smooth layer to see possible patterns, which indicate a bias in RMSD for pLDDT. Ideally, there is no pattern, just a horizontal line.</p>
+<p>The mean pLDDT score is then plotted against the RMSD value with the geom_smooth layer to see possible patterns, which indicate a bias in RMSD for pLDDT. Ideally, there is no pattern, just a horizontal line (Pearson’s correlation coefficient of 0).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot RMSD vs mean pLDDT</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tsv_plddt, <span class="fu">aes</span>(<span class="at">x =</span> mean_score, <span class="at">y =</span> RMSD)) <span class="sc">+</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Mean pLDDT of paralog pair"</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"RMSD (Å)"</span>,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"RMSD vs AlphaFold Confidence (pLDDT)"</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot RMSD vs mean pLDDT</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tsv_plddt, <span class="fu">aes</span>(<span class="at">x =</span> mean_score, <span class="at">y =</span> RMSD)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"glm"</span>) <span class="sc">+</span>  <span class="co"># when plotting the lm((RMSD~mean_score, tsv_plddt) the assumptions are not met, so using glm as method</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Mean pLDDT of paralog pair"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"RMSD (Å)"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"RMSD vs AlphaFold Confidence (pLDDT)"</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="co"># center the title</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate Pearson's correlation coefficient and its significance</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(tsv_plddt<span class="sc">$</span>mean_score, tsv_plddt<span class="sc">$</span>RMSD, <span class="at">method =</span> <span class="st">'pearson'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>This indicates a bias of RMSD relative to pLDDT</p>
 </section>
 <section id="gene-set-enrichment-analysis" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Gene set enrichment analysis</h1>
 <p>Assess if the top 10% or bottom 10% of structural diverged proteins based on RMSD is biased to certain protein classes/functions. We will use the string ID database to search for associated functional terms with each protein. Add 2 columns with corresponding string_ids of the UniProt IDs, dup1_stringID and dup2_stringID, to the dataset. Gene sets where we’re interested in: top 10% of protein pairs with most and with lowest RMSD. Select of these proteins the string IDs. Also select the string IDs of all the duplicated genes present in the table, since they will serve as the background or universe. The background is very important: only looking in the universe of duplicated proteins (present in tgv_complete or tgv_clean). So, proteins with NA for RMSD must not be included.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>aliases <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://stringdb-downloads.org/download/protein.aliases.v12.0/4932.protein.aliases.v12.0.txt.gz"</span>,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># select string IDs of corresponding UniProt accession numbers</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>aliases_uniprot <span class="ot">&lt;-</span> aliases <span class="sc">|&gt;</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>( source <span class="sc">==</span> <span class="st">"UniProt_AC"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="at">stringID =</span> <span class="st">'#string_protein_id'</span> , <span class="at">uniprotID =</span> <span class="st">'alias'</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># add two columns with string IDs of duplicated genes</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>tsv_complete <span class="ot">&lt;-</span> tsv_clean <span class="sc">|&gt;</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(aliases_uniprot, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"dup1"</span> <span class="ot">=</span> <span class="st">"uniprotID"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">dup1_stringID =</span> stringID) <span class="sc">|&gt;</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(aliases_uniprot, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"dup2"</span> <span class="ot">=</span> <span class="st">"uniprotID"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">dup2_stringID =</span> stringID)</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>         </span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># filter for top and bottom 10% RMSD values </span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>data_sorted <span class="ot">&lt;-</span> tsv_complete <span class="sc">|&gt;</span> <span class="fu">arrange</span>(RMSD)</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>n10 <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">nrow</span>(data_sorted) <span class="sc">*</span> <span class="fl">0.10</span>)</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>lower  <span class="ot">&lt;-</span> <span class="fu">head</span>(data_sorted, n10)   <span class="co"># paralogous protein pairs with lowest RMSD</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>higher <span class="ot">&lt;-</span> <span class="fu">tail</span>(data_sorted, n10)   <span class="co"># with highest RMSD</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract STRING IDs for enrichment sets</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>lower_stringIDs <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">c</span>(lower<span class="sc">$</span>dup1_stringID, lower<span class="sc">$</span>dup2_stringID)) <span class="co"># get also character vector back from unique()</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>higher_stringIDs <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">c</span>(higher<span class="sc">$</span>dup1_stringID, higher<span class="sc">$</span>dup2_stringID))</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co"># string IDs of background / universe (all duplicated genes with non-NA value in the RMSD column)</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>background_genes <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">c</span>(</span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  tsv_complete<span class="sc">$</span>dup1_stringID,</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  tsv_complete<span class="sc">$</span>dup2_stringID))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>aliases <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://stringdb-downloads.org/download/protein.aliases.v12.0/4932.protein.aliases.v12.0.txt.gz"</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># select string IDs of corresponding UniProt accession numbers</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>aliases_uniprot <span class="ot">&lt;-</span> aliases <span class="sc">|&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>( source <span class="sc">==</span> <span class="st">"UniProt_AC"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="at">stringID =</span> <span class="st">'#string_protein_id'</span> , <span class="at">uniprotID =</span> <span class="st">'alias'</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># add two columns with string IDs of duplicated genes</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>tsv_complete <span class="ot">&lt;-</span> tsv_clean <span class="sc">|&gt;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(aliases_uniprot, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"dup1"</span> <span class="ot">=</span> <span class="st">"uniprotID"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">dup1_stringID =</span> stringID) <span class="sc">|&gt;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(aliases_uniprot, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"dup2"</span> <span class="ot">=</span> <span class="st">"uniprotID"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">dup2_stringID =</span> stringID)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>         </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># filter for top and bottom 10% RMSD values </span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>data_sorted <span class="ot">&lt;-</span> tsv_complete <span class="sc">|&gt;</span> <span class="fu">arrange</span>(RMSD)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>n10 <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">nrow</span>(data_sorted) <span class="sc">*</span> <span class="fl">0.10</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>lower  <span class="ot">&lt;-</span> <span class="fu">head</span>(data_sorted, n10)   <span class="co"># paralogous protein pairs with lowest RMSD</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>higher <span class="ot">&lt;-</span> <span class="fu">tail</span>(data_sorted, n10)   <span class="co"># with highest RMSD</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract STRING IDs for enrichment sets</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>lower_stringIDs <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">c</span>(lower<span class="sc">$</span>dup1_stringID, lower<span class="sc">$</span>dup2_stringID)) <span class="co"># get also character vector back from unique()</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>higher_stringIDs <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">c</span>(higher<span class="sc">$</span>dup1_stringID, higher<span class="sc">$</span>dup2_stringID))</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co"># string IDs of background / universe (all duplicated genes with non-NA value in the RMSD column)</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>background_genes <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">c</span>(</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  tsv_complete<span class="sc">$</span>dup1_stringID,</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  tsv_complete<span class="sc">$</span>dup2_stringID))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Get TERM2GENE table (argument of enricher function): two-column data frame with all terms of interest and their corresponding string IDs (not only GO terms, otherwise you could use the enrichGO function because it is a model organism). We are interested in the following 3 categories: ‘Biological Process’ (from GO), ‘Protein Domains and Features’ from InterPro, and ‘Reactome Pathways’.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://stringdb-downloads.org/download/protein.enrichment.terms.v12.0/4932.protein.enrichment.terms.v12.0.txt.gz"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_filter <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">filter</span>(category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Biological Process (Gene Ontology)"</span>, <span class="st">"Protein Domains and Features (InterPro)"</span>, <span class="st">"Reactome Pathways"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(description, <span class="dv">1</span>)  <span class="co"># select only first column with IDs </span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>enr_lower <span class="ot">&lt;-</span> <span class="fu">enricher</span>(<span class="at">gene =</span> lower_stringIDs, <span class="at">universe =</span> background_genes, <span class="at">TERM2GENE =</span> df_filter)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>enr_lower <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(enr_lower) <span class="co"># of view(enr_lower) in console</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>enr_higher <span class="ot">&lt;-</span> <span class="fu">enricher</span>(<span class="at">gene =</span> higher_stringIDs, <span class="at">universe =</span> background_genes, <span class="at">TERM2GENE =</span> df_filter)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>enr_higher <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(enr_higher)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://stringdb-downloads.org/download/protein.enrichment.terms.v12.0/4932.protein.enrichment.terms.v12.0.txt.gz"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df_filter <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">filter</span>(category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Biological Process (Gene Ontology)"</span>, <span class="st">"Protein Domains and Features (InterPro)"</span>, <span class="st">"Reactome Pathways"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(description, <span class="dv">1</span>)  <span class="co"># select only first column with IDs </span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>enr_lower <span class="ot">&lt;-</span> <span class="fu">enricher</span>(<span class="at">gene =</span> lower_stringIDs, <span class="at">universe =</span> background_genes, <span class="at">TERM2GENE =</span> df_filter)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>enr_lower <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(enr_lower) <span class="co"># of view(enr_lower) in console</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>enr_higher <span class="ot">&lt;-</span> <span class="fu">enricher</span>(<span class="at">gene =</span> higher_stringIDs, <span class="at">universe =</span> background_genes, <span class="at">TERM2GENE =</span> df_filter)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>enr_higher <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(enr_higher)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="plot-rmsd-vs-ranked-gene-families" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> plot RMSD vs ranked gene families</h1>
-<p>Use the already sorted data from the gene set enrichment analysis. The genes that are included in this analysis, the lowest and highest 10%, are differentially colored.</p>
+<section id="plot-rmsd-vs-ranked-paralog-pairs" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> plot RMSD vs ranked paralog pairs</h1>
+<p>Use the already sorted data from the gene set enrichment analysis. The genes that are included in this analysis - 10% of total genes with lowest and highest RMSD - are differentially colored.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The row numbers of the data ranked according to RMSD are the ranks</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data_ranked <span class="ot">&lt;-</span> data_sorted <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">row_number</span>())</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add group labels</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>data_ranked <span class="ot">&lt;-</span> data_ranked <span class="sc">|&gt;</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">case_when</span>(</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    rank <span class="sc">&lt;=</span> n10 <span class="sc">~</span> <span class="st">"Lower 10%"</span>,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    rank <span class="sc">&gt;</span> (<span class="fu">nrow</span>(data_ranked) <span class="sc">-</span> n10) <span class="sc">~</span> <span class="st">"Upper 10%"</span>,</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Middle"</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_ranked, <span class="fu">aes</span>(<span class="at">x =</span> rank, <span class="at">y =</span> RMSD)) <span class="sc">+</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> group), <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Smooth trend (like red curve in your example)</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"loess"</span>) <span class="sc">+</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Lower 10%"</span> <span class="ot">=</span> <span class="st">"blue"</span>,</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Middle"</span> <span class="ot">=</span> <span class="st">"black"</span>,</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Upper 10%"</span> <span class="ot">=</span> <span class="st">"orange"</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ranked gene pairs"</span>,</span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"RMSD (Å)"</span>,</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Group"</span>,</span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"RMSD distribution across ranked paralog pairs"</span></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The row numbers of the data ranked according to RMSD are the ranks</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data_ranked <span class="ot">&lt;-</span> data_sorted <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">row_number</span>())</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add group labels</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>data_ranked <span class="ot">&lt;-</span> data_ranked <span class="sc">|&gt;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">case_when</span>(</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    rank <span class="sc">&lt;=</span> n10 <span class="sc">~</span> <span class="st">"Lower 10%"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    rank <span class="sc">&gt;</span> (<span class="fu">nrow</span>(data_ranked) <span class="sc">-</span> n10) <span class="sc">~</span> <span class="st">"Upper 10%"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Middle"</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_ranked, <span class="fu">aes</span>(<span class="at">x =</span> rank, <span class="at">y =</span> RMSD)) <span class="sc">+</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> group), <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Lower 10%"</span> <span class="ot">=</span> <span class="st">"blue"</span>,</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Middle"</span> <span class="ot">=</span> <span class="st">"black"</span>,</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Upper 10%"</span> <span class="ot">=</span> <span class="st">"orange"</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ranked paralog pairs"</span>,</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"RMSD (Å)"</span>,</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Group"</span>,</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"RMSD distribution across ranked paralog pairs"</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span>  <span class="co"># + facet_wrap(~type)+ to facet by duplication type</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -504,14 +522,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
